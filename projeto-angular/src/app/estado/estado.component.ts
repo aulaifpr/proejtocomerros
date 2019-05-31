@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Estado } from '../entidades/estado';
 import { ServicoEstado } from '../servicos/servico.estado';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'vetor-component'
-  ,templateUrl: 'vetores.component.html'
-  ,styleUrls: ['vetores.component.html']
+  selector: 'estado-component'
+  ,templateUrl: 'estado.component.html'
+  ,styleUrls: ['estado.component.css']
 })
-export class EstadoComponent{
+
+export class EstadoComponent implements OnInit{
 
   estados$ : Observable<Estado[]>;
   estado : Estado = new Estado();
@@ -30,7 +31,7 @@ export class EstadoComponent{
       this.servico.alterar(this.estado).subscribe(()=>{
         this.estados$ = this.servico.listar();
       });
-      this.salvar = true;
+      //this.salvar = true;
     }
     this.estado = new Estado();
   }
@@ -43,5 +44,6 @@ export class EstadoComponent{
 
   alterar(estado: Estado) : void{
     this.estado = estado;
+    this.salvar = false;
   }
 }

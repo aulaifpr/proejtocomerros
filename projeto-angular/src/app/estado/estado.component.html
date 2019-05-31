@@ -7,6 +7,9 @@
       <div class="form-group">
         <input class="form-control" type="text" [(ngModel)]="estado.sigla" name="sigla" >
       </div>
+      <div class="form-group">
+        <input class="form-control" type="text" [(ngModel)]="estado.status" name="status" >
+      </div>
       <div class="">
         <button class="btn btn-info" type="button" name="button" (click)='adicionar()'>adicionar</button>
       </div>
@@ -18,6 +21,7 @@
       <tr>
         <th scope="col">NOME</th>
         <th scope="col">SIGLA</th>
+        <th scope="col">STATUS</th>
         <th scope="col">EXCLUIR</th>
         <th scope="col">ALTERAR</th>
       </tr>
@@ -26,6 +30,7 @@
       <tr *ngFor="let estado of estados$ | async">
         <td>{{estado.nome}}</td>
         <td>{{estado.sigla}}</td>
+        <td>{{estado.status}}</td>
         <td>
           <button class="btn btn-info" type="button" name="button" (click)="excluir(estado.id)">
             <i class="fas fa-trash-alt"></i>

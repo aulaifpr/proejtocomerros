@@ -12,10 +12,14 @@ import { SobreComponent } from './sobre/sobre.component';
 import { Erro404Component } from './erro404/erro404.component';
 import { SomaComponent } from './soma/soma.component';
 import { ServicoEstado } from './servicos/servico.estado';
+import { EstadoComponent } from './estado/estado.component';
+import { EnderecoComponent } from './endereco/endereco.component';
+import { ServicoEndereco } from './servicos/servico.endereco';
+
 
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent, RodapeComponent, SobreComponent, Erro404Component, SomaComponent
+    AppComponent, HomeComponent, RodapeComponent, SobreComponent, Erro404Component, SomaComponent, EstadoComponent, EnderecoComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,7 @@ import { ServicoEstado } from './servicos/servico.estado';
     FormsModule,
     HttpClientModule
   ],
-  providers: [ServicoEstado],
+  providers: [ServicoEstado, ServicoEndereco],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

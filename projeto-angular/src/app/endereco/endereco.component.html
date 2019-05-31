@@ -1,0 +1,70 @@
+<div class="container">
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label>CEP</label>
+      <input type="text" class="form-control" type="text" [(ngModel)]="endereco.cep" name="cep" />
+    </div>
+
+      <button class="btn btn-info" type="button" name="button" (click)='atualizar(cep)'>buscar</button>
+
+    <div class="form-group col-md-4">
+      <label>Endereço</label>
+      <input type="text" class="form-control" type="text" [(ngModel)]="endereco.logradouro" name="logradouro"  placeholder="Rua dos Bobos, nº 0"/>
+    </div>
+    <div class="form-group col-md-2">
+      <label>Complemento</label>
+      <input type="text" class="form-control" [(ngModel)]="endereco.complemento" name="complemento" placeholder="Apartamento, hotel, casa, etc."/>
+    </div>
+    <div class="form-group col-md-2">
+      <label>Bairro</label>
+      <input type="text" class="form-control" [(ngModel)]="endereco.bairro" name="bairro"/>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>Cidade</label>
+      <input type="text" class="form-control" [(ngModel)]="endereco.localidade" name="localidade"/>
+    </div>
+    <div class="form-group col-md-6">
+      <label>Estado</label>
+      <input class="form-control" type="text" [(ngModel)]="endereco.uf" name="uf"/>
+    </div>
+  </div>
+</form>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Endereço</th>
+    <th scope="col">Bairro</th>
+    <th scope="col">CEP</th>
+    <th scope="col">Cidade</th>
+    <th scope="col">Estado</th>
+    <!-- <th scope="col">EXCLUIR</th>
+    <th scope="col">ALTERAR</th> -->
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let endereco of endereco$ | async">
+    <td>{{endereco.logradouro}}</td>
+    <td>{{endereco.bairro}}</td>
+    <td>{{endereco.cep}}</td>
+    <td>{{endereco.localidade}}</td>
+    <td>{{endereco.uf}}</td>
+    <!--
+    <td>
+      <button class="btn btn-info" type="button" name="button" (click)="excluir(endereco.id)">
+        <i class="fas fa-trash-alt"></i>
+      </button>
+    </td>
+    <td>
+      <button class="btn btn-info" type="button" name="button" (click)="alterar(endereco)" >
+        <i class="fas fa-edit"></i>
+      </button>
+    </td>
+    -->
+  </tr>
+  </tbody>
+  </table>
+  </div>
